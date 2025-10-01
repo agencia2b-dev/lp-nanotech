@@ -79,8 +79,17 @@ export default function Home() {
   ];
 
   const handleCRMClick = useCallback(() => {
-    if (typeof window !== 'undefined' && (window as any).openCRMModal) {
-      (window as any).openCRMModal();
+    if (typeof window !== 'undefined') {
+      if ((window as any).openCRMModal) {
+        (window as any).openCRMModal();
+      } else {
+        // Fallback: abrir modal diretamente
+        const modalOverlay = document.getElementById('crm-floating-modal-overlay');
+        if (modalOverlay) {
+          modalOverlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      }
     }
   }, []);
 

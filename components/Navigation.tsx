@@ -46,8 +46,16 @@ export default function Navigation() {
             ))}
             <button
               onClick={() => {
-                if (typeof window !== 'undefined' && window.openCRMModal) {
-                  window.openCRMModal();
+                if (typeof window !== 'undefined') {
+                  if ((window as any).openCRMModal) {
+                    (window as any).openCRMModal();
+                  } else {
+                    const modalOverlay = document.getElementById('crm-floating-modal-overlay');
+                    if (modalOverlay) {
+                      modalOverlay.style.display = 'flex';
+                      document.body.style.overflow = 'hidden';
+                    }
+                  }
                 }
               }}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 whitespace-nowrap"
@@ -87,8 +95,16 @@ export default function Navigation() {
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
-                  if (typeof window !== 'undefined' && window.openCRMModal) {
-                    window.openCRMModal();
+                  if (typeof window !== 'undefined') {
+                    if ((window as any).openCRMModal) {
+                      (window as any).openCRMModal();
+                    } else {
+                      const modalOverlay = document.getElementById('crm-floating-modal-overlay');
+                      if (modalOverlay) {
+                        modalOverlay.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                      }
+                    }
                   }
                 }}
                 className="w-full text-left bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
