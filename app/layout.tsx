@@ -5,6 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import CRMModal from "../components/CRMModal";
 
 const pacifico = Pacifico({
   weight: '400',
@@ -127,6 +128,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Footer */}
         <Footer />
+
+        {/* CRM Modal Handler */}
+        <CRMModal />
 
         {/* Botão Flutuante CRM */}
         <div 
