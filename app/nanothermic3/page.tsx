@@ -22,11 +22,7 @@ export default function Nanothermic3() {
   }, []);
 
   const openWhatsApp = useCallback(() => {
-    if (typeof window !== 'undefined' && (window as any).gtag_report_conversion) {
-      (window as any).gtag_report_conversion('https://wa.me/5511956405311');
-    } else {
-      window.open('https://wa.me/5511956405311', '_blank');
-    }
+    window.open('https://wa.me/5511956405311', '_blank');
   }, []);
 
   useEffect(() => {
