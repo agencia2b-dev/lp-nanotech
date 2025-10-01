@@ -68,6 +68,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W6FRRVH');`
         }} />
         
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://static.readdy.ai" />
+        <link rel="preconnect" href="https://nanotechdobrasil.com.br" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="https://nanotechdobrasil.com.br/wp-content/uploads/2025/07/logotipo.png" as="image" />
+        
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
