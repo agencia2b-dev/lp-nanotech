@@ -47,6 +47,70 @@ export default function Nanothermic3() {
     
     return () => observer.disconnect();
   }, []);
+
+  // Form submission handler
+  useEffect(() => {
+    const form = document.getElementById('crm-embedded-form-nt3') as HTMLFormElement;
+    const submitBtn = document.getElementById('crm-embedded-submit-btn-nt3') as HTMLButtonElement;
+    const messageDiv = document.getElementById('crm-embedded-message-nt3') as HTMLDivElement;
+
+    if (!form || !submitBtn || !messageDiv) return;
+
+    const handleSubmit = async (e: Event) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://wtvrdalmgbhbomfridwe.supabase.co/functions/v1/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.get('name') || '',
+            email: formData.get('email') || '',
+            phone: formData.get('phone') || '',
+            message: formData.get('subject') ? formData.get('subject') + '\n\n' + (formData.get('message') || '') : (formData.get('message') || ''),
+            source: 'nanothermic3-form',
+            produto: 'Nanothermic 3'
+          })
+        });
+
+        if (response.ok) {
+          messageDiv.style.display = 'block';
+          messageDiv.style.background = '#d4edda';
+          messageDiv.style.color = '#155724';
+          messageDiv.style.border = '1px solid #c3e6cb';
+          messageDiv.textContent = 'Obrigado! Entraremos em contato em breve.';
+          messageDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error('Erro no envio');
+        }
+      } catch (error) {
+        console.error('Form error:', error);
+        messageDiv.style.display = 'block';
+        messageDiv.style.background = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.border = '1px solid #f5c6cb';
+        messageDiv.textContent = 'Erro ao enviar formulário. Tente novamente.';
+        messageDiv.classList.remove('hidden');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar Formulário';
+    };
+
+    form.addEventListener('submit', handleSubmit);
+
+    return () => {
+      form.removeEventListener('submit', handleSubmit);
+    };
+  }, []);
   
   const addToRefs = useCallback((id: string) => (el: HTMLElement | null) => {
     if (!sectionsRef.current) {

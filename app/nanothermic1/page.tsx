@@ -48,6 +48,70 @@ export default function Nanothermic1() {
     return () => observer.disconnect();
   }, []);
 
+  // Form submission handler
+  useEffect(() => {
+    const form = document.getElementById('crm-embedded-form-nt1') as HTMLFormElement;
+    const submitBtn = document.getElementById('crm-embedded-submit-btn-nt1') as HTMLButtonElement;
+    const messageDiv = document.getElementById('crm-embedded-message-nt1') as HTMLDivElement;
+
+    if (!form || !submitBtn || !messageDiv) return;
+
+    const handleSubmit = async (e: Event) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://wtvrdalmgbhbomfridwe.supabase.co/functions/v1/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.get('name') || '',
+            email: formData.get('email') || '',
+            phone: formData.get('phone') || '',
+            message: formData.get('subject') ? formData.get('subject') + '\n\n' + (formData.get('message') || '') : (formData.get('message') || ''),
+            source: 'nanothermic1-form',
+            produto: 'Nanothermic 1'
+          })
+        });
+
+        if (response.ok) {
+          messageDiv.style.display = 'block';
+          messageDiv.style.background = '#d4edda';
+          messageDiv.style.color = '#155724';
+          messageDiv.style.border = '1px solid #c3e6cb';
+          messageDiv.textContent = 'Obrigado! Entraremos em contato em breve.';
+          messageDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error('Erro no envio');
+        }
+      } catch (error) {
+        console.error('Form error:', error);
+        messageDiv.style.display = 'block';
+        messageDiv.style.background = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.border = '1px solid #f5c6cb';
+        messageDiv.textContent = 'Erro ao enviar formulário. Tente novamente.';
+        messageDiv.classList.remove('hidden');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar Formulário';
+    };
+
+    form.addEventListener('submit', handleSubmit);
+
+    return () => {
+      form.removeEventListener('submit', handleSubmit);
+    };
+  }, []);
+
   const addToRefs = useCallback((id: string) => (el: HTMLElement | null) => {
     sectionsRef.current[id] = el;
   }, []);
@@ -649,112 +713,6 @@ export default function Nanothermic1() {
                     <div id="crm-embedded-message-nt1" className="mt-4 p-3 rounded hidden"></div>
                   </form>
                 </div>
-
-                <script
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                      (function() {
-                        // Wait for DOM to be fully loaded
-                        if (document.readyState === 'loading') {
-                          document.addEventListener('DOMContentLoaded', initializeCRMEmbeddedNT1);
-                        } else {
-                          initializeCRMEmbeddedNT1();
-                        }
-
-                        function initializeCRMEmbeddedNT1() {
-                          try {
-                            const form = document.getElementById('crm-embedded-form-nt1');
-                            const submitBtn = document.getElementById('crm-embedded-submit-btn-nt1');
-                            const messageDiv = document.getElementById('crm-embedded-message-nt1');
-
-                            if (!form || !submitBtn || !messageDiv) {
-                              console.error('CRM Embedded Form NT1: Required elements not found');
-                              return;
-                            }
-
-                            console.log('CRM Embedded Form NT1: Initialized successfully');
-
-                            // Collect initial tracking data
-                            if (typeof collectCRMTrackingData === 'function') {
-                              collectCRMTrackingData();
-                            }
-
-                            form.addEventListener('submit', async function(e) {
-                              e.preventDefault();
-
-                              submitBtn.disabled = true;
-                              submitBtn.textContent = 'Enviando...';
-
-                              const formData = new FormData(form);
-
-                              try {
-                                let response;
-                                if (typeof sendCRMFormData === 'function') {
-                                  response = await sendCRMFormData(formData, 'https://wtvrdalmgbhbomfridwe.supabase.co/functions/v1/leads');
-                                } else {
-                                  // Fallback se a função não estiver disponível
-                                  response = await fetch('https://wtvrdalmgbhbomfridwe.supabase.co/functions/v1/leads', {
-                                    method: 'POST',
-                                    headers: {
-                                      'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                      name: formData.get('name') || '',
-                                      email: formData.get('email') || '',
-                                      phone: formData.get('phone') || '',
-                                      message: formData.get('subject') ? formData.get('subject') + '\\n\\n' + (formData.get('message') || '') : (formData.get('message') || ''),
-                                      source: 'nanothermic1-form',
-                                      produto: 'Nanothermic 1'
-                                    })
-                                  });
-                                }
-
-                                if (response.ok) {
-                                  messageDiv.style.display = 'block';
-                                  messageDiv.style.background = '#d4edda';
-                                  messageDiv.style.color = '#155724';
-                                  messageDiv.style.border = '1px solid #c3e6cb';
-                                  messageDiv.textContent = 'Obrigado! Entraremos em contato em breve.';
-                                  messageDiv.classList.remove('hidden');
-                                  form.reset();
-                                  console.log('CRM Embedded Form NT1: Data sent successfully');
-                                } else {
-                                  throw new Error('Erro no envio');
-                                }
-                              } catch (error) {
-                                console.error('CRM Embedded Form NT1 error:', error);
-                                messageDiv.style.display = 'block';
-                                messageDiv.style.background = '#f8d7da';
-                                messageDiv.style.color = '#721c24';
-                                messageDiv.style.border = '1px solid f5c6cb';
-                                messageDiv.textContent = 'Erro ao enviar formulário. Tente novamente.';
-                                messageDiv.classList.remove('hidden');
-                              }
-
-                              submitBtn.disabled = false;
-                              submitBtn.textContent = 'Enviar Formulário';
-                            });
-
-                            // Hover effect
-                            submitBtn.addEventListener('mouseover', function() {
-                              if (!this.disabled) {
-                                this.style.background = '#ea580c';
-                              }
-                            });
-
-                            submitBtn.addEventListener('mouseout', function() {
-                              if (!this.disabled) {
-                                this.style.background = '#ea580c';
-                              }
-                            });
-                          } catch (error) {
-                            console.error('CRM Embedded Form NT1 initialization error:', error);
-                          }
-                        }
-                      })();
-                    `,
-                  }}
-                />
               </div>
             </div>
           </div>

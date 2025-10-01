@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Pacifico } from "next/font/google";
+import { Inter, Roboto_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Navigation from "../components/Navigation";
@@ -13,13 +13,13 @@ const pacifico = Pacifico({
   variable: '--font-pacifico',
 });
 
-const geistSans = Geist({
+const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
+const robotoMono = Roboto_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: 'swap',
@@ -106,7 +106,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable}`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${robotoMono.variable} ${pacifico.variable}`} suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
