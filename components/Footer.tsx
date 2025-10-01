@@ -7,7 +7,6 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const pages = [
-    { href: '/', label: 'Início' },
     { href: '/nanothermic1', label: 'Nanothermic 1' },
     { href: '/nanocril', label: 'Nanocril' },
     { href: '/nanothermic3', label: 'Nanothermic 3' }
@@ -30,12 +29,6 @@ export default function Footer() {
               Soluções inovadoras em nanotecnologia para isolamento térmico e impermeabilização. 
               Transformando ambientes com eficiência e sustentabilidade.
             </p>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <i className="ri-phone-line text-green-400"></i>
-                <span className="text-sm text-gray-300">(11) 95640-5311</span>
-              </div>
-            </div>
           </div>
 
           {/* Páginas do Site */}
@@ -61,8 +54,16 @@ export default function Footer() {
             <div className="space-y-3">
               <button
                 onClick={() => {
-                  if (typeof window !== 'undefined' && window.openCRMModal) {
-                    window.openCRMModal();
+                  if (typeof window !== 'undefined') {
+                    if ((window as any).openCRMModal) {
+                      (window as any).openCRMModal();
+                    } else {
+                      const modalOverlay = document.getElementById('crm-floating-modal-overlay');
+                      if (modalOverlay) {
+                        modalOverlay.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                      }
+                    }
                   }
                 }}
                 className="block w-full text-left bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
@@ -89,15 +90,15 @@ export default function Footer() {
             <div className="text-sm text-gray-400">
               © {currentYear} Nanotech. Todos os direitos reservados.
             </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-400">Feito com</span>
+            <div className="text-sm text-gray-400">
+              Desenvolvido por{' '}
               <a
-                href="https://readdy.ai/?origin=logo"
+                href="https://agencia2b.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 transition-colors duration-200 text-sm font-medium"
+                className="text-green-400 hover:text-green-300 transition-colors duration-200 font-medium"
               >
-                Readdy
+                Agencia2B
               </a>
             </div>
           </div>
