@@ -230,7 +230,7 @@ export default function Nanothermic3() {
               <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
                 Proteção, Eficiência e Durabilidade
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="text-white">Proteção, Eficiência</span>
                 <br />
                 <span className="text-yellow-300">e Durabilidade</span>
@@ -238,14 +238,14 @@ export default function Nanothermic3() {
                 <span className="text-yellow-300">Nanothermic 3</span>
               </h1>
               <div className="space-y-4">
-                <p className="text-lg text-blue-100">
+                <p className="text-sm sm:text-base md:text-lg text-blue-100">
                   Isolante térmico de alta tecnologia, desenvolvido para reduzir custos energéticos e aumentar a produtividade.
                 </p>
-                <p className="text-lg text-blue-100">
+                <p className="text-sm sm:text-base md:text-lg text-blue-100">
                   Referência em alta performance em isolamento.
                 </p>
               </div>
-              <div className="flex items-center gap-8 py-6">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 py-6">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-yellow-300">90%</div>
                   <div className="text-sm text-blue-200">Proteção UV</div>
@@ -262,7 +262,7 @@ export default function Nanothermic3() {
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={scrollToForm}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-16 py-6 rounded-xl font-bold text-2xl transition-all duration-500 transform hover:scale-110 shadow-xl hover:shadow-2xl whitespace-nowrap relative overflow-hidden"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 sm:px-10 md:px-16 py-4 md:py-6 rounded-xl font-bold text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-500 transform hover:scale-110 shadow-xl hover:shadow-2xl relative overflow-hidden w-full sm:w-auto"
                 >
                   <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
                   <div className="absolute inset-0 bg-yellow-200 rounded-xl animate-ping opacity-20"></div>

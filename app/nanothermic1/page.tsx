@@ -226,20 +226,20 @@ export default function Nanothermic1() {
               <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                 Clima Perfeito com Nanotecnologia
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 <span className="text-green-600">Conforto, Economia</span>
                 <br />
                 <span className="text-orange-500">e Sustentabilidade</span>
               </h1>
               <div className="space-y-2">
-                <p className="text-lg text-gray-700">
-                  Reduza até <span className="text-green-600 font-bold text-xl">35% da temperatura</span> ambiente e economize até <span className="text-orange-500 font-bold text-xl">50% na sua conta de energia</span>. A tecnologia que protege seu bolso e o planeta.
+                <p className="text-sm sm:text-base md:text-lg text-gray-700">
+                  Reduza até <span className="text-green-600 font-bold text-base sm:text-lg md:text-xl">35% da temperatura</span> ambiente e economize até <span className="text-orange-500 font-bold text-base sm:text-lg md:text-xl">50% na sua conta de energia</span>. A tecnologia que protege seu bolso e o planeta.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={scrollToForm}
-                  className="bg-green-600 hover:bg-green-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap relative overflow-hidden"
+                  className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 md:px-12 py-4 md:py-5 rounded-xl font-bold text-base sm:text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl relative overflow-hidden w-full sm:w-auto"
                 >
                   <span className="relative z-10">QUERO MEU ORÇAMENTO GRÁTIS</span>
                   <div className="absolute inset-0 bg-green-400 rounded-xl animate-ping opacity-20"></div>
