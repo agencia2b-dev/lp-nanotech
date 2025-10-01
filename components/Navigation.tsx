@@ -10,7 +10,6 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const pages = [
-    { href: '/', label: 'Início', description: 'Página inicial' },
     { href: '/nanothermic1', label: 'Nanothermic 1', description: 'Redução Térmica Avançada' },
     { href: '/nanocril', label: 'Nanocril', description: 'Proteção Impermeabilizante' },
     { href: '/nanothermic3', label: 'Nanothermic 3', description: 'Máxima Performance Térmica' }
