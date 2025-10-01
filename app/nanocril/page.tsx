@@ -210,19 +210,17 @@ export default function Nanocril() {
               <div className="inline-block bg-white/20 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-medium">
                 IMPERMEABILIZANTE
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-gray-900">Nanocril:</span> A Borracha Líquida com
-                <br />
-                <span className="text-gray-800">Nanotecnologia que Revoluciona a Impermeabilização</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <span className="text-gray-900">Nanocril:</span> A Borracha Líquida com Nanotecnologia que Revoluciona a Impermeabilização
               </h1>
-              <p className="text-lg text-gray-800 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed">
                 Diga adeus aos métodos ultrapassados! Nanocril é o
                 impermeabilizante acrílico com fórmula inovadora, à base de água e
                 elastômeros de alta performance, que garante maior adaptabilidade,
                 resistência e duração para sua obra.
               </p>
 
-              <div className="flex items-center gap-8 py-6">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 py-6">
                 <div className="flex items-center gap-3">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                     <i className="ri-leaf-line text-gray-900 text-2xl" />
@@ -255,7 +253,7 @@ export default function Nanocril() {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={scrollToForm}
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap relative overflow-hidden"
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-6 sm:px-8 md:px-12 py-4 md:py-5 rounded-xl font-bold text-base sm:text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl relative overflow-hidden w-full sm:w-auto"
                 >
                   <span className="relative z-10">QUERO MEU ORÇAMENTO GRÁTIS</span>
                   <div className="absolute inset-0 bg-orange-400 rounded-xl animate-ping opacity-20"></div>

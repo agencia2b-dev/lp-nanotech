@@ -139,15 +139,15 @@ export default function Home() {
           }`}
         >
           <div className="container mx-auto px-6 text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 px-4">
               Nanotech - Soluções em <span className="text-green-600">Nanotecnologia</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
               Tecnologia avançada para isolamento térmico e impermeabilização. Descubra como a nanotecnologia pode transformar sua obra com eficiência e durabilidade.
             </p>
             <button 
               onClick={handleCRMClick}
-              className="bg-green-600 hover:bg-green-700 text-white px-12 py-5 rounded-xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl whitespace-nowrap crm-trigger"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 md:px-12 py-4 md:py-5 rounded-xl font-bold text-base sm:text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl crm-trigger mx-4"
             >
               SOLICITAR ORÇAMENTO GRÁTIS
             </button>
@@ -164,7 +164,7 @@ export default function Home() {
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Conheça Nossa <span className="text-green-600">Linha de Produtos</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">

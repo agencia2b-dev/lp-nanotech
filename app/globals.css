@@ -20,6 +20,18 @@
   /* Optimize images */
   img {
     content-visibility: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure all containers respect viewport */
+  * {
+    box-sizing: border-box;
   }
 }
 
