@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /nanothermic1
+Allow: /nanocril
+Allow: /nanothermic3
+
+Sitemap: https://example.com/sitemap.xml
